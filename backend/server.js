@@ -44,6 +44,9 @@ app.post("/register", async (req, res) => {
   try {
     console.log("entered registration")
     const { name, email, password } = req.body;
+    console.log(name)
+    console.log(email)
+    console.log(password)
     const existingUser = await UserModel.findOne({ email });
     if (existingUser) {
       return res.status(409).json({ message: "User already registered" });
